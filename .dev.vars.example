@@ -1,0 +1,10 @@
+# Copy to .dev.vars for local `npm run dev` (never commit this file).
+#
+# APP_ENV=development enables seeded demo accounts + sandbox wallet top-ups.
+# Leave APP_ENV unset (or "production") to test exactly what will be deployed.
+APP_ENV=development
+JWT_SECRET=change-me-to-a-long-random-string-of-at-least-32-chars
+
+# Needed when APP_ENV is not "development":
+# ADMIN_EMAIL=you@example.com
+# ADMIN_PASSWORD=at-least-12-characters

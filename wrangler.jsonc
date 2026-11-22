@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "astro-celeste",
+  "main": "worker/index.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // The built React app (npm run build -> dist/). Static files are served for free,
+  // without invoking the Worker; only the paths below go through the Worker.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/ws", "/uploads/*", "/robots.txt", "/sitemap.xml"]
+  },
+
+  // One SQLite-backed Durable Object hosts the database, REST API and WebSocket chat.
+  "durable_objects": {
+    "bindings": [{ "name": "BACKEND", "class_name": "AstralisBackend" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["AstralisBackend"] }],
+
+  // Non-secret settings. Secrets (JWT_SECRET, ADMIN_EMAIL, ADMIN_PASSWORD, payment and
+  // telephony keys) are NOT stored here: use `npx wrangler secret put <NAME>`.
+  "vars": {
+    "ADMIN_FIRST_NAME": "Admin",
+    "ADMIN_LAST_NAME": "Astralis"
+  },
+
+  "observability": { "enabled": true }
+}

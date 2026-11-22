@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-midnight: #101323;
+  --color-navy-surface: #191E32;
+  --color-gold: #C7A66A;
+  --color-gold-hover: #B49154;
+  --color-ivory: #F7F4EF;
+  --color-ivory-muted: #ECE7DF;
+  --color-lavender: #9D91B8;
+  --color-ink: #25263A;
+  --color-ink-muted: #64667A;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-wrap: break-word;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes slowGreenGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(22, 163, 74, 0.25), 0 0 18px rgba(22, 163, 74, 0.14);
+    border-color: rgba(22, 163, 74, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(22, 163, 74, 0.55), 0 0 32px rgba(22, 163, 74, 0.32);
+    border-color: rgba(22, 163, 74, 0.85);
+  }
+}
+
+.free-offer-glow {
+  animation: slowGreenGlow 3.6s ease-in-out infinite;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 60s linear infinite;
+  will-change: transform;
+}
+
+.marquee-band:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.hero-particles {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particles span {
+  position: absolute;
+  left: var(--particle-x);
+  top: var(--particle-y);
+  width: var(--particle-size);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: #fff1c8;
+  box-shadow: 0 0 8px 2px rgba(255, 226, 160, 0.9), 0 0 22px 7px rgba(226, 177, 82, 0.55);
+  opacity: 0;
+  animation:
+    heroParticleFloat var(--particle-duration) ease-in-out var(--particle-delay) infinite,
+    heroParticleGlow var(--particle-glow-duration) ease-in-out var(--particle-glow-delay) infinite;
+}
+
+.hero-particles span:nth-child(1) { --particle-x: 17%; --particle-y: 68%; --particle-size: 4px; --particle-duration: 11s; --particle-delay: -2s; --particle-drift-x: 18px; --particle-drift-y: -30px; --particle-glow-duration: 4.1s; --particle-glow-delay: -1s; }
+.hero-particles span:nth-child(2) { --particle-x: 39%; --particle-y: 30%; --particle-size: 6px; --particle-duration: 14s; --particle-delay: -9s; --particle-drift-x: -24px; --particle-drift-y: -16px; --particle-glow-duration: 5.3s; --particle-glow-delay: -3s; }
+.hero-particles span:nth-child(3) { --particle-x: 58%; --particle-y: 72%; --particle-size: 3px; --particle-duration: 12s; --particle-delay: -5s; --particle-drift-x: 9px; --particle-drift-y: -42px; --particle-glow-duration: 3.7s; --particle-glow-delay: -2s; }
+.hero-particles span:nth-child(4) { --particle-x: 73%; --particle-y: 24%; --particle-size: 5px; --particle-duration: 16s; --particle-delay: -12s; --particle-drift-x: -32px; --particle-drift-y: 18px; --particle-glow-duration: 6.2s; --particle-glow-delay: -4s; }
+.hero-particles span:nth-child(5) { --particle-x: 88%; --particle-y: 58%; --particle-size: 3px; --particle-duration: 13s; --particle-delay: -7s; --particle-drift-x: 22px; --particle-drift-y: -24px; --particle-glow-duration: 4.6s; --particle-glow-delay: -2s; }
+.hero-particles span:nth-child(6) { --particle-x: 29%; --particle-y: 83%; --particle-size: 4px; --particle-duration: 15s; --particle-delay: -11s; --particle-drift-x: -14px; --particle-drift-y: -36px; --particle-glow-duration: 5.7s; --particle-glow-delay: -5s; }
+.hero-particles span:nth-child(7) { --particle-x: 94%; --particle-y: 36%; --particle-size: 6px; --particle-duration: 17s; --particle-delay: -4s; --particle-drift-x: -26px; --particle-drift-y: 28px; --particle-glow-duration: 4.3s; --particle-glow-delay: -3s; }
+.hero-particles span:nth-child(8) { --particle-x: 8%; --particle-y: 43%; --particle-size: 5px; --particle-duration: 14s; --particle-delay: -6s; --particle-drift-x: 30px; --particle-drift-y: -18px; --particle-glow-duration: 6.4s; --particle-glow-delay: -1s; }
+.hero-particles span:nth-child(9) { --particle-x: 24%; --particle-y: 19%; --particle-size: 3px; --particle-duration: 12s; --particle-delay: -10s; --particle-drift-x: -20px; --particle-drift-y: 35px; --particle-glow-duration: 3.9s; --particle-glow-delay: -3s; }
+.hero-particles span:nth-child(10) { --particle-x: 47%; --particle-y: 56%; --particle-size: 7px; --particle-duration: 16s; --particle-delay: -3s; --particle-drift-x: 12px; --particle-drift-y: -28px; --particle-glow-duration: 5.1s; --particle-glow-delay: -4s; }
+.hero-particles span:nth-child(11) { --particle-x: 65%; --particle-y: 42%; --particle-size: 4px; --particle-duration: 13s; --particle-delay: -8s; --particle-drift-x: -34px; --particle-drift-y: -12px; --particle-glow-duration: 4.8s; --particle-glow-delay: -2s; }
+.hero-particles span:nth-child(12) { --particle-x: 81%; --particle-y: 82%; --particle-size: 5px; --particle-duration: 15s; --particle-delay: -13s; --particle-drift-x: 25px; --particle-drift-y: -40px; --particle-glow-duration: 6.1s; --particle-glow-delay: -5s; }
+.hero-particles span:nth-child(13) { --particle-x: 98%; --particle-y: 74%; --particle-size: 3px; --particle-duration: 11s; --particle-delay: -1s; --particle-drift-x: -16px; --particle-drift-y: -22px; --particle-glow-duration: 4.4s; --particle-glow-delay: -1s; }
+.hero-particles span:nth-child(14) { --particle-x: 52%; --particle-y: 16%; --particle-size: 4px; --particle-duration: 17s; --particle-delay: -14s; --particle-drift-x: 28px; --particle-drift-y: 24px; --particle-glow-duration: 5.5s; --particle-glow-delay: -4s; }
+.hero-particles span:nth-child(15) { --particle-x: 12%; --particle-y: 88%; --particle-size: 6px; --particle-duration: 14s; --particle-delay: -9s; --particle-drift-x: -28px; --particle-drift-y: -26px; --particle-glow-duration: 3.8s; --particle-glow-delay: -2s; }
+.hero-particles span:nth-child(16) { --particle-x: 77%; --particle-y: 48%; --particle-size: 3px; --particle-duration: 12s; --particle-delay: -5s; --particle-drift-x: 16px; --particle-drift-y: 32px; --particle-glow-duration: 6.5s; --particle-glow-delay: -3s; }
+.hero-particles span:nth-child(17) { --particle-x: 34%; --particle-y: 47%; --particle-size: 2px; --particle-duration: 18s; --particle-delay: -7s; --particle-drift-x: 34px; --particle-drift-y: -34px; --particle-glow-duration: 4.7s; --particle-glow-delay: -5s; }
+.hero-particles span:nth-child(18) { --particle-x: 61%; --particle-y: 89%; --particle-size: 5px; --particle-duration: 13s; --particle-delay: -12s; --particle-drift-x: -18px; --particle-drift-y: -20px; --particle-glow-duration: 5.9s; --particle-glow-delay: -2s; }
+.hero-particles span:nth-child(19) { --particle-x: 4%; --particle-y: 13%; --particle-size: 3px; --particle-duration: 15s; --particle-delay: -4s; --particle-drift-x: 24px; --particle-drift-y: 38px; --particle-glow-duration: 4.2s; --particle-glow-delay: -3s; }
+.hero-particles span:nth-child(20) { --particle-x: 91%; --particle-y: 11%; --particle-size: 4px; --particle-duration: 19s; --particle-delay: -15s; --particle-drift-x: -30px; --particle-drift-y: 34px; --particle-glow-duration: 6.7s; --particle-glow-delay: -1s; }
+
+@keyframes heroParticleFloat {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(var(--particle-drift-x), var(--particle-drift-y), 0);
+  }
+}
+
+@keyframes heroParticleGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px 1px rgba(255, 226, 160, 0.55), 0 0 12px 4px rgba(226, 177, 82, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 11px 4px rgba(255, 240, 197, 1), 0 0 30px 11px rgba(226, 177, 82, 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

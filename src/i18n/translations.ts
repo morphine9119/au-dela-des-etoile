@@ -1,0 +1,30 @@
+export type Locale = 'fr';
+
+export const translations: Record<Locale, Record<string, string>> = {
+  fr: {
+    nav_home: 'Accueil',
+    nav_experts: 'Conseillers',
+    nav_tarot: 'Tarot & Astrologie',
+    nav_journal: 'Revue',
+    nav_become_expert: 'Devenir Expert',
+    nav_login: 'Connexion',
+    nav_register: 'Créer un compte',
+    nav_cta: 'Consulter',
+    nav_account: 'Mon Espace',
+    nav_expert_portal: 'Espace Expert',
+    nav_admin_portal: 'Administration',
+    hero_kicker: 'CONSULTATIONS SPIRITUELLES PRIVÉES',
+    hero_title: 'La clarté par l’astrologie classique et le tarot.',
+    hero_subtitle: 'Échangez en toute confidentialité avec des astrologues, tarologues et numérologues vérifiés, par tchat en direct, ligne directe ou sur rendez-vous.',
+    hero_primary_cta: 'Découvrir les Conseillers',
+    hero_secondary_cta: 'Horoscopes & Tarot',
+    section_featured: 'Conseiller à la Une',
+    section_online_chat: 'Disponibles en Tchat Direct',
+    section_voice: 'Consultations Téléphoniques',
+    section_matcher: 'Orientation Personnalisée',
+    section_editorial: 'Cahiers Éditoriaux',
+    section_faq: 'Questions & Transparence',
+    demo_notice: 'Environnement de démonstration — Les profils de test et crédits sandbox sont clairement identifiés.',
+    footer_rights: 'Tous droits réservés.',
+  },
+};

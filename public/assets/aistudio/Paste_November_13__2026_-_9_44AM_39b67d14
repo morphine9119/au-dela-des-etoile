@@ -1,0 +1,1377 @@
+# MASTER DEVELOPMENT PROMPT
+## Build a Complete Premium Spiritual Consultation Marketplace
+
+### 1. PROJECT OVERVIEW
+
+Build a complete, production-oriented web platform inspired by the business model and user experience of Cosmospace (https://www.cosmospace.com/).
+
+The platform must be an original product with its own identity, branding, components, content, and implementation.
+
+Do not copy Cosmospace's logo, proprietary illustrations, photographs, text, or source code.
+
+The objective is to create a sophisticated commercial marketplace connecting clients with professional spiritual consultants, tarot readers, astrologers, numerologists, mediums, and other specialists.
+
+This is NOT a static website or a simple landing page.
+
+It is a complete multi-role web application with:
+- Public website.
+- Client accounts and dashboard.
+- Expert accounts and dashboard.
+- Administrator dashboard.
+- Real-time consultation services.
+- Booking and scheduling.
+- Payment processing.
+- Wallet and transaction management.
+- Commission management.
+- Loyalty and rewards.
+- Reviews and ratings.
+- Content management.
+- Notifications.
+- Customer support.
+- Analytics and reporting.
+
+All features must be implemented as real functional systems, not visual demonstrations.
+
+### 2. DEVELOPMENT PRINCIPLES
+
+Follow these principles throughout development:
+
+1. Build a complete and coherent application, not disconnected pages.
+2. Use reusable components and maintainable architecture.
+3. Implement real authentication and authorization.
+4. Never simulate successful payments or real transactions.
+5. Never hardcode business-critical information into UI components.
+6. All prices, commissions, availability, offers, and permissions must be configurable.
+7. Every interactive element must perform its intended action.
+8. Provide proper loading, success, empty, and error states.
+9. Design for desktop first while ensuring excellent mobile and tablet experiences.
+10. Prioritize performance, security, accessibility, and SEO.
+11. Keep the branding configurable because the final brand identity has not yet been selected.
+12. Use realistic demo data for development, clearly separated from production data.
+
+### 3. TECHNOLOGY STACK
+
+Use the following architecture:
+
+FRONTEND:
+- Next.js with App Router.
+- React.
+- TypeScript with strict mode.
+- Tailwind CSS.
+- shadcn/ui.
+- Lucide icons.
+- Framer Motion for controlled animations.
+- React Hook Form.
+- Zod validation.
+
+BACKEND:
+- Next.js server-side functionality.
+- Supabase.
+- PostgreSQL.
+- Supabase Authentication.
+- Supabase Realtime.
+- Supabase Storage.
+- Secure API routes and server actions.
+
+DEPLOYMENT:
+- Vercel-compatible deployment.
+- Supabase-hosted database and backend services.
+- Environment-based configuration.
+- Production and development environments.
+
+PAYMENT ARCHITECTURE:
+Create a provider-independent payment integration layer.
+
+The platform must support future integration with:
+- Credit/debit cards.
+- Supported local payment gateways.
+- Digital wallets where available.
+- Refunds.
+- Payment verification.
+- Webhooks.
+
+Do not assume Stripe or any other payment provider is available in every target country. Check geographic availability before implementation.
+
+REAL-TIME COMMUNICATION:
+- Supabase Realtime for messaging and presence.
+- WebRTC or an appropriate external VoIP provider for actual voice calls.
+- A provider abstraction for future communication integrations.
+
+### 4. VISUAL IDENTITY AND DESIGN SYSTEM
+
+The final brand identity is undecided.
+
+Create a configurable design system that can be rebranded without restructuring the application.
+
+Initial creative direction:
+
+Premium, elegant, modern, mysterious, sophisticated, calm, and trustworthy.
+
+Visual inspiration:
+- Premium editorial websites.
+- Modern luxury applications.
+- Celestial and astronomical visual elements.
+- Sophisticated typography.
+- Subtle gradients.
+- Refined motion.
+- Spacious layouts.
+
+Suggested initial colors:
+
+- Deep midnight navy: #101323
+- Secondary navy: #191E32
+- Muted gold: #C7A66A
+- Soft ivory: #F7F4EF
+- Muted lavender: #9D91B8
+- Main text: #25263A
+- Secondary text: #77798B
+- Success: accessible green.
+- Error: accessible red.
+
+Use these as initial design tokens, not permanent brand requirements.
+
+TYPOGRAPHY:
+Use a sophisticated combination of:
+- Elegant serif typography for large editorial headings.
+- Clean sans-serif typography for interface elements.
+- Readable typography for long descriptions.
+
+Use a configurable font system with appropriate language support.
+
+DESIGN REQUIREMENTS:
+- Generous spacing.
+- Carefully controlled visual hierarchy.
+- Consistent border radius.
+- Subtle shadows.
+- Refined hover effects.
+- Smooth but restrained animations.
+- Consistent iconography.
+- Clear visual distinction between primary and secondary actions.
+- No excessive gradients or decorative elements.
+
+Avoid:
+- Generic AI-generated dashboard aesthetics.
+- Excessively rounded components.
+- Cluttered layouts.
+- Too many colors.
+- Excessive animations.
+- Inconsistent spacing.
+- Unnecessary UI elements.
+
+Create a complete design system with:
+- Color tokens.
+- Typography scale.
+- Spacing scale.
+- Border radius.
+- Shadows.
+- Buttons.
+- Inputs.
+- Cards.
+- Modals.
+- Dropdowns.
+- Navigation.
+- Tables.
+- Badges.
+- Notifications.
+- Responsive breakpoints.
+
+### 5. APPLICATION ARCHITECTURE
+
+Build three independent role-based experiences connected to one backend.
+
+A. PUBLIC WEBSITE
+Accessible to all visitors.
+
+B. CLIENT APPLICATION
+Accessible to authenticated customers.
+
+C. EXPERT APPLICATION
+Accessible to approved experts.
+
+D. ADMINISTRATION APPLICATION
+Accessible only to authorized administrators and staff.
+
+Implement role-based access control on the server, not only by hiding frontend elements.
+
+Suggested routes:
+
+PUBLIC:
+/
+ /experts
+ /experts/phone
+ /experts/chat
+ /experts/[slug]
+ /become-an-expert
+ /rewards
+ /blog
+ /blog/[slug]
+ /horoscope
+ /tarot
+ /about
+ /contact
+ /faq
+ /login
+ /register
+ /forgot-password
+ /privacy
+ /terms
+ /cookies
+
+CLIENT:
+/account
+/account/profile
+/account/consultations
+/account/messages
+/account/appointments
+/account/wallet
+/account/transactions
+/account/favorites
+/account/reviews
+/account/rewards
+/account/notifications
+/account/settings
+/account/support
+
+EXPERT:
+/expert/dashboard
+/expert/profile
+/expert/availability
+/expert/services
+/expert/consultations
+/expert/messages
+/expert/earnings
+/expert/transactions
+/expert/reviews
+/expert/statistics
+/expert/settings
+
+ADMIN:
+/admin
+/admin/users
+/admin/clients
+/admin/experts
+/admin/applications
+/admin/consultations
+/admin/payments
+/admin/refunds
+/admin/commissions
+/admin/wallets
+/admin/rewards
+/admin/coupons
+/admin/reviews
+/admin/categories
+/admin/content
+/admin/blog
+/admin/horoscopes
+/admin/support
+/admin/notifications
+/admin/reports
+/admin/settings
+/admin/audit-logs
+
+### 6. PUBLIC HOMEPAGE
+
+Create a sophisticated homepage with the following sections.
+
+HEADER:
+- Configurable logo.
+- Main navigation.
+- Expert directory.
+- Consultation services.
+- Tarot and astrology.
+- Rewards.
+- Blog.
+- Login.
+- Registration.
+- Primary consultation CTA.
+
+The navigation must support dropdown menus and mobile navigation.
+
+HERO SECTION:
+Create a visually distinctive hero section.
+
+Include:
+- Large editorial headline.
+- Short descriptive subtitle.
+- Primary CTA: Find an Expert.
+- Secondary CTA: Explore Services.
+- Sophisticated celestial artwork.
+- Optional promotional banner.
+- Optional featured expert.
+
+EXPERT DISCOVERY:
+Display selected experts in a responsive card layout.
+
+Each expert card must include:
+- Profile image.
+- Name.
+- Specialty.
+- Rating.
+- Review count.
+- Consultation price.
+- Availability.
+- Consultation methods.
+- View Profile action.
+- Start Consultation action.
+
+Include horizontal carousels where appropriate.
+
+PHONE CONSULTATION SECTION:
+Show available experts for voice consultations.
+
+CHAT CONSULTATION SECTION:
+Show experts available for real-time text consultations.
+
+FEATURED EXPERT:
+Create a dedicated editorial presentation of a featured expert.
+
+RECOMMENDATION SECTION:
+Create a guided expert recommendation questionnaire.
+
+Questions may include:
+- What subject concerns you?
+- What type of guidance are you looking for?
+- Which consultation method do you prefer?
+- Do you have a preferred language?
+
+Generate recommendations using configurable matching rules.
+
+LOYALTY SECTION:
+Introduce the rewards system and explain how customers earn and redeem points.
+
+EDITORIAL SECTION:
+Display recent articles, astrology content, and tarot-related educational material.
+
+PODCAST / MEDIA SECTION:
+Support audio and video content using external media embeds or uploaded media.
+
+FAQ SECTION:
+Create expandable FAQ items.
+
+TRUST SECTION:
+Display genuine platform statistics and verified information only.
+
+FOOTER:
+Include:
+- Company information.
+- Consultation categories.
+- Customer support.
+- Expert recruitment.
+- Legal pages.
+- Social media.
+- Newsletter.
+- Language selection.
+- Copyright.
+
+### 7. EXPERT DIRECTORY
+
+Build a complete expert discovery system.
+
+Features:
+
+SEARCH:
+- Search by expert name.
+- Search by specialty.
+- Search by keyword.
+- Search by consultation method.
+
+FILTERS:
+- Online availability.
+- Consultation type.
+- Specialty.
+- Language.
+- Price range.
+- Minimum rating.
+- Experience level.
+
+SORTING:
+- Recommended.
+- Highest rated.
+- Lowest price.
+- Highest price.
+- Most experienced.
+- Available now.
+
+EXPERT CARDS:
+Display:
+- Profile image.
+- Name.
+- Specialty.
+- Short biography.
+- Rating.
+- Review count.
+- Consultation price.
+- Online/offline status.
+- Available services.
+
+Support:
+- Pagination.
+- Load more.
+- Empty search results.
+- Filter reset.
+- Responsive grid.
+- URL-persistent search and filter state.
+
+### 8. EXPERT PROFILE
+
+Every expert must have a dedicated public profile.
+
+Include:
+
+PROFILE HEADER:
+- Profile photograph.
+- Cover image.
+- Full name or display name.
+- Specialty.
+- Verified badge when approved.
+- Online/offline/busy status.
+- Rating.
+- Number of completed consultations.
+- Years of experience when verified.
+
+PROFILE CONTENT:
+- Professional biography.
+- Areas of expertise.
+- Consultation methods.
+- Languages.
+- Divination tools.
+- Professional introduction video (optional).
+
+SERVICES:
+- Phone consultation.
+- Text consultation.
+- Scheduled appointment.
+- Service-specific pricing.
+
+AVAILABILITY:
+- Weekly calendar.
+- Available time slots.
+- Timezone handling.
+- Upcoming appointments.
+- Unavailable periods.
+
+REVIEWS:
+- Verified client reviews.
+- Rating breakdown.
+- Review date.
+- Pagination.
+
+ACTIONS:
+- Add to favorites.
+- Contact expert.
+- Start chat.
+- Request phone consultation.
+- Book appointment.
+- Report profile.
+
+Do not allow fake reviews or fabricated consultation statistics.
+
+### 9. AUTHENTICATION AND CLIENT ACCOUNTS
+
+Implement complete authentication.
+
+Features:
+- Email registration.
+- Password login.
+- Email verification.
+- Password reset.
+- Secure session management.
+- Optional social login.
+- Account deactivation.
+- Account deletion request.
+
+CLIENT PROFILE:
+- First name.
+- Last name.
+- Email.
+- Phone number.
+- Profile image.
+- Preferred language.
+- Timezone.
+- Notification preferences.
+
+Collect only information necessary for the requested services.
+
+CLIENT DASHBOARD:
+
+Create a modern dashboard with:
+- Welcome message.
+- Wallet balance.
+- Loyalty points.
+- Recent consultations.
+- Upcoming appointments.
+- Favorite experts.
+- Unread messages.
+- Recent transactions.
+- Notifications.
+- Recommended experts.
+
+### 10. REAL-TIME CHAT SYSTEM
+
+Build a genuine real-time messaging application.
+
+CHAT INTERFACE:
+- Conversation list.
+- Active conversation.
+- Expert profile summary.
+- Online status.
+- Message timestamps.
+- Message delivery state.
+- Unread indicators.
+- Text input.
+- Send button.
+- Optional attachments.
+- Responsive mobile layout.
+
+CHAT BEHAVIOR:
+- Messages must be stored in the database.
+- Messages must be delivered in real time.
+- Support reconnection.
+- Support unread message counts.
+- Support pagination of message history.
+- Validate message content server-side.
+- Restrict conversations to authorized participants.
+- Provide abuse-reporting functionality.
+
+PAID CHAT:
+Support configurable billing models:
+
+1. Price per message.
+2. Price per minute.
+3. Fixed-price session.
+
+Display the pricing model clearly before starting a consultation.
+
+For paid sessions:
+- Verify customer payment authorization.
+- Create a consultation session.
+- Track usage server-side.
+- Calculate charges.
+- Update the transaction ledger.
+- Finalize the consultation.
+- Calculate expert earnings.
+- Apply platform commission.
+
+Do not trust client-side timers or prices.
+
+### 11. PHONE CONSULTATION SYSTEM
+
+Build the architecture for actual phone consultations.
+
+Features:
+- Request a call.
+- Expert availability verification.
+- Customer phone verification when required.
+- Call initiation through an integrated provider.
+- Session status tracking.
+- Start and end timestamps.
+- Duration calculation.
+- Billing calculation.
+- Failed call handling.
+- Refund handling.
+- Call history.
+
+Create a provider adapter so that telephony providers can be replaced without rewriting the application.
+
+Do not display a working call feature until an actual provider is configured and tested.
+
+Never record calls by default. If recording is introduced, require explicit consent and comply with applicable laws.
+
+### 12. APPOINTMENT BOOKING
+
+Build a complete scheduling engine.
+
+Features:
+- Weekly expert availability.
+- Multiple working periods per day.
+- Break periods.
+- Timezone conversion.
+- Date selection.
+- Time-slot availability.
+- Booking confirmation.
+- Cancellation policy.
+- Rescheduling.
+- Reminder notifications.
+- Calendar view.
+
+Prevent double bookings through server-side transaction-safe availability checks.
+
+### 13. PAYMENTS AND FINANCIAL SYSTEM
+
+Create a secure financial subsystem.
+
+PAYMENT FEATURES:
+- Checkout.
+- Payment provider integration.
+- Payment verification.
+- Payment status.
+- Transaction history.
+- Refund requests.
+- Failed payment handling.
+- Receipts.
+
+WALLET:
+- Available balance.
+- Pending balance.
+- Transaction history.
+- Credits.
+- Debits.
+- Refunds.
+- Adjustments.
+
+EXPERT EARNINGS:
+- Gross consultation revenue.
+- Platform commission.
+- Net earnings.
+- Pending earnings.
+- Available withdrawals.
+- Withdrawal history.
+
+COMMISSION ENGINE:
+- Global commission.
+- Expert-specific commission.
+- Service-specific commission.
+- Promotional commission.
+- Administrative overrides with audit records.
+
+FINANCIAL SECURITY:
+- Never trust frontend payment confirmations.
+- Verify all provider webhooks.
+- Use idempotency keys.
+- Use database transactions.
+- Maintain an immutable financial ledger.
+- Prevent duplicate charges.
+- Prevent negative balance exploitation.
+- Separate platform funds from expert earnings.
+- Store no raw card details.
+
+All financial operations must be auditable.
+
+### 14. LOYALTY AND REWARDS
+
+Create a configurable rewards program.
+
+Features:
+- Earn points from eligible purchases.
+- Registration rewards.
+- Referral rewards.
+- Promotional campaigns.
+- Daily rewards.
+- Optional interactive games.
+- Redeem points for coupons or eligible services.
+- Points expiration.
+- Loyalty history.
+- Membership tiers.
+
+ADMIN CONTROLS:
+- Points per purchase.
+- Expiration period.
+- Redemption conversion rate.
+- Reward limits.
+- Campaign start/end dates.
+- Eligibility conditions.
+
+Implement points through a dedicated transaction ledger.
+
+Prevent repeated claims, fraudulent referrals, and duplicate rewards.
+
+### 15. EXPERT APPLICATION AND RECRUITMENT
+
+Create a public expert recruitment page.
+
+APPLICATION FORM:
+- Personal information.
+- Professional display name.
+- Email.
+- Phone.
+- Country.
+- Languages.
+- Specialties.
+- Experience.
+- Biography.
+- Consultation methods.
+- Profile image.
+- CV or portfolio upload.
+
+APPLICATION WORKFLOW:
+1. Draft.
+2. Submitted.
+3. Under review.
+4. Interview or evaluation.
+5. Approved.
+6. Rejected.
+7. Activated.
+
+ADMINISTRATORS MUST BE ABLE TO:
+- Review applications.
+- View submitted documents.
+- Add internal notes.
+- Request additional information.
+- Approve or reject.
+- Send notifications.
+- Convert approved applications into expert accounts.
+
+### 16. EXPERT DASHBOARD
+
+Create a dedicated professional workspace.
+
+OVERVIEW:
+- Daily consultations.
+- Monthly consultations.
+- Earnings.
+- Pending earnings.
+- Average rating.
+- New reviews.
+- Upcoming appointments.
+- Online status.
+
+PROFILE MANAGEMENT:
+- Edit biography.
+- Upload profile images.
+- Edit specialties.
+- Edit languages.
+- Manage services.
+- Update prices.
+
+AVAILABILITY:
+- Weekly schedule.
+- Working hours.
+- Breaks.
+- Holidays.
+- Temporary absence.
+
+CONSULTATIONS:
+- Active sessions.
+- Pending requests.
+- Completed sessions.
+- Cancelled sessions.
+
+MESSAGING:
+- Real-time customer conversations.
+- Notifications.
+- Conversation history.
+
+FINANCIAL:
+- Earnings overview.
+- Commission details.
+- Withdrawal requests.
+- Transaction history.
+
+### 17. ADMINISTRATION DASHBOARD
+
+The administration panel is a critical component.
+
+Create a professional, data-rich, responsive interface.
+
+OVERVIEW:
+- Total registered customers.
+- Active experts.
+- Pending applications.
+- Total consultations.
+- Revenue.
+- Platform commission.
+- Refunds.
+- Active sessions.
+- New registrations.
+- Monthly performance.
+
+USER MANAGEMENT:
+- Search customers.
+- View profiles.
+- Edit permitted information.
+- Suspend accounts.
+- Reactivate accounts.
+- Manage roles.
+- Review account history.
+
+EXPERT MANAGEMENT:
+- Approve experts.
+- Edit profiles.
+- Manage pricing.
+- Manage availability.
+- Suspend experts.
+- Verify profiles.
+- View performance.
+- Configure commission rates.
+
+CONSULTATION MANAGEMENT:
+- View all sessions.
+- Filter by date.
+- Filter by expert.
+- Filter by client.
+- View status.
+- View charges.
+- Handle disputes.
+
+FINANCIAL MANAGEMENT:
+- Payments.
+- Refunds.
+- Withdrawals.
+- Commission reports.
+- Financial ledger.
+- Export reports.
+
+CONTENT MANAGEMENT:
+- Homepage sections.
+- Banners.
+- Expert highlights.
+- Articles.
+- Categories.
+- FAQs.
+- Horoscope content.
+- Promotional campaigns.
+
+MARKETING:
+- Coupons.
+- Discounts.
+- Referral campaigns.
+- Newsletter.
+- Promotional notifications.
+
+SYSTEM SETTINGS:
+- Currency.
+- Language.
+- Tax settings.
+- Commission.
+- Consultation pricing rules.
+- Payment providers.
+- Notification settings.
+- Maintenance mode.
+
+ADMIN SECURITY:
+- Role-based permissions.
+- Two-factor authentication.
+- Audit logs.
+- Sensitive action confirmation.
+- Administrative session protection.
+
+### 18. REVIEWS AND REPUTATION
+
+Only customers with completed, eligible consultations may submit reviews.
+
+Features:
+- 1–5 star rating.
+- Written review.
+- Review date.
+- Expert response (optional).
+- Reporting.
+- Moderation.
+- Fraud prevention.
+
+The administrator can moderate abusive or policy-violating content but must not silently fabricate or manipulate ratings.
+
+### 19. BLOG, ASTROLOGY AND EDITORIAL CONTENT
+
+Build a complete content management system.
+
+BLOG:
+- Categories.
+- Tags.
+- Authors.
+- Cover images.
+- Rich text.
+- SEO title.
+- SEO description.
+- Publication date.
+- Draft and published states.
+- Related articles.
+
+HOROSCOPES:
+- 12 zodiac signs.
+- Daily horoscope.
+- Weekly horoscope.
+- Monthly horoscope.
+- Yearly horoscope.
+- Editorial management.
+- SEO-friendly pages.
+
+TAROT:
+- Tarot educational content.
+- Card encyclopedia.
+- Card meanings.
+- Interactive optional card draw.
+
+All content must be manageable through the administration panel.
+
+### 20. NOTIFICATIONS
+
+Implement a centralized notification system.
+
+IN-APP:
+- New message.
+- Consultation request.
+- Booking confirmation.
+- Booking reminder.
+- Payment success.
+- Payment failure.
+- Refund status.
+- Loyalty rewards.
+- Expert approval.
+
+EMAIL:
+- Registration confirmation.
+- Password reset.
+- Booking confirmation.
+- Transaction receipt.
+- Important account notifications.
+
+OPTIONAL:
+- SMS notifications.
+- Push notifications.
+
+Allow users to manage non-essential notification preferences.
+
+### 21. CUSTOMER SUPPORT
+
+Build a support system.
+
+Features:
+- Support ticket creation.
+- Ticket categories.
+- Priority.
+- Status.
+- Customer messages.
+- Staff responses.
+- Attachments.
+- Internal staff notes.
+- Ticket history.
+
+Statuses:
+- Open.
+- In progress.
+- Waiting for customer.
+- Resolved.
+- Closed.
+
+### 22. DATABASE DESIGN
+
+Use PostgreSQL with properly normalized tables.
+
+At minimum, create:
+
+- users
+- user_roles
+- client_profiles
+- expert_profiles
+- expert_categories
+- expert_services
+- expert_availability
+- expert_applications
+- consultations
+- chat_conversations
+- chat_messages
+- call_sessions
+- appointments
+- reviews
+- favorites
+- payments
+- refunds
+- wallets
+- wallet_transactions
+- expert_earnings
+- commission_rules
+- withdrawals
+- loyalty_accounts
+- loyalty_transactions
+- reward_campaigns
+- coupons
+- coupon_redemptions
+- notifications
+- notification_preferences
+- articles
+- article_categories
+- horoscopes
+- support_tickets
+- support_messages
+- audit_logs
+- platform_settings
+
+DATABASE REQUIREMENTS:
+- UUID primary keys.
+- Foreign keys.
+- Appropriate indexes.
+- Unique constraints.
+- Created and updated timestamps.
+- Soft deletion where appropriate.
+- Database transactions for financial operations.
+- Row Level Security.
+- Secure database functions when needed.
+
+Use integer minor currency units or another explicitly defined decimal-safe monetary representation. Never use floating-point arithmetic for financial calculations.
+
+Provide SQL migrations and seed data.
+
+### 23. SECURITY AND PRIVACY
+
+Security must be implemented from the beginning.
+
+Requirements:
+- Secure authentication.
+- Server-side authorization.
+- Row Level Security.
+- Input validation.
+- Rate limiting.
+- Secure file uploads.
+- Protection against SQL injection.
+- Protection against XSS.
+- CSRF protection where applicable.
+- Secure cookies.
+- Environment secret management.
+- Audit logging.
+- Webhook signature verification.
+- Session expiration.
+- Account deletion workflow.
+- Data export workflow.
+- Privacy consent management.
+
+Collect sensitive personal information only when necessary.
+
+Consultation conversations must remain private and visible only to authorized participants and explicitly authorized personnel under a documented policy.
+
+Never expose:
+- Password hashes.
+- Private financial information.
+- Internal expert notes.
+- Other users' conversations.
+- Payment secrets.
+- Administrative credentials.
+
+Implement applicable data protection requirements, including GDPR where relevant.
+
+### 24. SEO AND PERFORMANCE
+
+Implement:
+- Server-side rendering where appropriate.
+- Metadata for all public pages.
+- Open Graph.
+- Canonical URLs.
+- XML sitemap.
+- Robots.txt.
+- Structured data where appropriate.
+- Optimized images.
+- Lazy loading.
+- Font optimization.
+- Route-level loading states.
+- Caching.
+- Pagination.
+
+Optimize for Core Web Vitals.
+
+### 25. RESPONSIVE DESIGN
+
+Support:
+
+DESKTOP:
+- Spacious layouts.
+- Advanced navigation.
+- Multi-column cards.
+- Full dashboards.
+
+TABLET:
+- Adaptive grids.
+- Collapsible navigation.
+- Optimized dashboard layouts.
+
+MOBILE:
+- Mobile-first navigation.
+- Touch-friendly controls.
+- Compact expert cards.
+- Mobile chat experience.
+- Easy booking.
+- Sticky primary CTA where appropriate.
+- No horizontal overflow.
+
+Test at common mobile, tablet, laptop, and desktop widths.
+
+### 26. MULTILINGUAL ARCHITECTURE
+
+Prepare the platform for:
+- French.
+- English.
+- Arabic.
+
+Use a proper internationalization architecture.
+
+Requirements:
+- Translatable interface strings.
+- Localized dates.
+- Currency formatting.
+- Timezone support.
+- RTL support for Arabic.
+- Language-specific SEO metadata.
+
+French may be the initial default language, but do not hardcode French text into components.
+
+### 27. TESTING
+
+Implement:
+
+UNIT TESTS:
+- Pricing calculations.
+- Commission calculations.
+- Wallet operations.
+- Loyalty calculations.
+- Availability calculations.
+
+INTEGRATION TESTS:
+- Authentication.
+- Payments.
+- Refunds.
+- Chat permissions.
+- Consultation lifecycle.
+- Expert approval.
+
+END-TO-END TESTS:
+- Client registration.
+- Expert discovery.
+- Expert profile navigation.
+- Consultation purchase.
+- Messaging.
+- Appointment booking.
+- Expert dashboard.
+- Admin management.
+
+SECURITY TESTS:
+- Unauthorized account access.
+- Role escalation.
+- Cross-user data access.
+- Duplicate payment requests.
+- Webhook replay.
+- Invalid financial operations.
+
+### 28. DEVELOPMENT EXECUTION PLAN
+
+Do not attempt to generate the entire application in one unstructured coding operation.
+
+Work in controlled phases.
+
+PHASE 1 — FOUNDATION
+- Inspect the existing repository.
+- Establish the application architecture.
+- Configure Next.js.
+- Configure Supabase.
+- Establish database migrations.
+- Set up authentication.
+- Create design tokens.
+- Create shared components.
+- Configure routing.
+
+PHASE 2 — PUBLIC WEBSITE
+- Homepage.
+- Navigation.
+- Expert directory.
+- Expert cards.
+- Expert profiles.
+- Blog.
+- Editorial pages.
+- FAQ.
+- Contact.
+
+PHASE 3 — CLIENT EXPERIENCE
+- Registration.
+- Login.
+- Client dashboard.
+- Profile management.
+- Favorites.
+- Consultation history.
+- Notifications.
+
+PHASE 4 — EXPERT EXPERIENCE
+- Recruitment.
+- Application workflow.
+- Expert dashboard.
+- Profile management.
+- Availability.
+- Services and pricing.
+- Earnings.
+
+PHASE 5 — CONSULTATION ENGINE
+- Real-time messaging.
+- Consultation lifecycle.
+- Booking.
+- Scheduling.
+- Voice integration adapter.
+
+PHASE 6 — FINANCIAL ENGINE
+- Payment integration.
+- Wallet.
+- Transactions.
+- Commission.
+- Refunds.
+- Expert withdrawals.
+
+PHASE 7 — LOYALTY AND CONTENT
+- Rewards.
+- Coupons.
+- Referrals.
+- Blog CMS.
+- Horoscope CMS.
+- Interactive content.
+
+PHASE 8 — ADMINISTRATION
+- User management.
+- Expert management.
+- Financial management.
+- Content management.
+- Support.
+- Analytics.
+- Audit logs.
+
+PHASE 9 — QUALITY AND DEPLOYMENT
+- Testing.
+- Security review.
+- Performance optimization.
+- Responsive testing.
+- Deployment documentation.
+
+At the end of each phase:
+1. Run the application.
+2. Run relevant tests.
+3. Fix errors.
+4. Verify the completed functionality.
+5. Update the project documentation.
+6. Do not proceed with unresolved critical errors.
+
+### 29. PROJECT STRUCTURE
+
+Organize the application into clear feature-based modules.
+
+Suggested structure:
+
+app/
+  (public)/
+  (auth)/
+  account/
+  expert/
+  admin/
+  api/
+
+components/
+  ui/
+  layout/
+  navigation/
+  experts/
+  consultations/
+  chat/
+  payments/
+  dashboard/
+  marketing/
+
+features/
+  authentication/
+  clients/
+  experts/
+  consultations/
+  messaging/
+  scheduling/
+  payments/
+  wallets/
+  loyalty/
+  reviews/
+  notifications/
+  content/
+  administration/
+
+lib/
+  supabase/
+  auth/
+  payments/
+  realtime/
+  validation/
+  security/
+  utilities/
+
+database/
+  migrations/
+  seed/
+
+types/
+hooks/
+tests/
+public/
+
+Adapt the structure when there is a clear architectural reason.
+
+### 30. DEMO MODE AND REAL FUNCTIONALITY
+
+Provide a development environment with realistic demo accounts:
+
+- One administrator.
+- Two or more experts.
+- Two or more customers.
+
+Provide seed data for:
+- Expert profiles.
+- Services.
+- Categories.
+- Availability.
+- Reviews.
+- Articles.
+- Consultations.
+
+Clearly mark demo accounts and test payments.
+
+Demo data must never be presented as verified real customer activity.
+
+If an external integration is not configured:
+- Provide a clear setup requirement.
+- Display an unavailable state.
+- Do not falsely claim that the integration works.
+- Do not simulate successful production transactions.
+
+### 31. ACCEPTANCE CRITERIA
+
+The application is not considered complete until all the following are verified:
+
+1. A visitor can browse the public website.
+2. A visitor can search and filter experts.
+3. A visitor can open an expert profile.
+4. A client can register and log in.
+5. A client can manage their profile.
+6. An expert can submit an application.
+7. An administrator can approve an expert.
+8. An approved expert can manage their profile.
+9. An expert can configure availability.
+10. A client can book an available appointment.
+11. Authorized users can exchange real-time messages.
+12. Consultation charges are calculated server-side.
+13. Payment status is verified by the payment provider.
+14. Financial transactions are recorded correctly.
+15. Commission calculations are correct.
+16. Experts can view their earnings.
+17. Clients can view their transaction history.
+18. Reviews are restricted to eligible consultations.
+19. Loyalty points are calculated and recorded correctly.
+20. Administrators can manage all essential platform operations.
+21. All role permissions are enforced server-side.
+22. The application works on mobile, tablet, and desktop.
+23. No critical security or functional errors remain.
+24. Deployment instructions and environment configuration are documented.
+
+### 32. FINAL INSTRUCTIONS TO THE CODING AGENT
+
+First inspect the repository and determine whether an application already exists.
+
+Do not overwrite existing work without understanding it.
+
+Then provide a short technical implementation plan and begin Phase 1.
+
+Build actual functionality rather than static mockups.
+
+Maintain a clear distinction between:
+- Implemented and tested features.
+- Implemented but untested features.
+- Features awaiting external provider integration.
+- Future features.
+
+Maintain a project checklist and update it continuously.
+
+Never mark a feature complete merely because its interface has been created.
+
+Do not skip database migrations, authorization, security, validation, or error handling.
+
+Prioritize a coherent, stable, maintainable, production-oriented platform over superficial feature quantity.
+
+The final result must feel like a premium commercial digital product, not a generic template.
+
+**PRIMARY OBJECTIVE: Build a complete, scalable, elegant spiritual consultation marketplace with a professional customer experience, expert workspace, reliable consultation engine, secure financial infrastructure, and powerful administration system.**

@@ -1,0 +1,6 @@
+{
+  "name": "Au-delà des Étoiles",
+  "description": "Private spiritual consultation marketplace connecting discerning clients with verified astrologers, tarot readers, numerologists, and intuitive specialists.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
